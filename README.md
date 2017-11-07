@@ -8,7 +8,7 @@ Ce dossier contient toute la documentation et les ressources nécessaires à la 
 
 La formation inclue une partie TP avec développement d'une application. Cette partie nécessite de mettre en place une connection à un px, afin de bénéficier de votre environnement linux personnel.
 
-La connection se fait au moyen de l'utilitaire XMing disponible sur les postes windows. Pour configurer cette connection veuillez suivres les instructions fournies sur le [portail wiki info](http://wikiinfo.mercator-ocean.fr).
+La connection se fait au moyen de l'utilitaire XMing disponible sur les postes windows. Pour configurer cette connection veuillez suivres les instructions fournies sur le [portail wiki info](https://wikiinfo.mercator-ocean.fr/dokuwiki/doku.php?id=user:4windows:1logiciels:xming&s[]=xming) -section ***Création de fichiers xlaunch***.
 
 Pour les besoins de configuration de l'environnement, il est préférable de travailler directement depuis son px.
 
