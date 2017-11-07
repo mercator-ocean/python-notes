@@ -1,11 +1,19 @@
-# FormationPython
-Stuff for MO
+# Formation Python MO/Makina
 
-
+Ce dossier contient toute la documentation et les ressources nécessaires à la bonne configuration de son poste de travail en vue de la formation python initiation.
 
 ## 1. Besoins pour la formation
 
-La formation inclue une partie TP avec développement d'une application. Pour, cela une configuration propre de python doit être faite, ainsi que l'installation de certains plugins/outils.
+### Environnement de travail
+
+La formation inclue une partie TP avec développement d'une application. Cette partie nécessite de mettre en place une connection à un px, afin de bénéficier de votre environnement linux personnel.
+
+La connection se fait au moyen de l'utilitaire XMing disponible sur les postes windows. Pour configurer cette connection veuillez suivres les instructions fournies sur le [portail wiki info](http://wikiinfo.mercator-ocean.fr).
+
+Pour les besoins de configuration de l'environnement, il est préférable de travailler directement depuis son px.
+
+### Environnement python
+Une fois connecté à votre px, une configuration propre de l'environnement python doit être faite, ainsi que l'installation de certains plugins/outils.
 
 Nous proposons ici soit:
 * de déployer une distribution python complète, indépendante du système, anaconda
@@ -21,8 +29,10 @@ Les besoins essentiels sont les suivants:
 
 ## 2. Configuration de l'environnement
 
+Connectez vous d'abord à votre px (via Xming si vous êtes à distance).
+
 ### PYTHONPATH (.bashrc)
-L'environnement python se base sur la variable PYTHONPATH, celle-ci étant initialisée dans le _$HOME/.bashrc_ . Pour les besoins de la formation, nous partirons d'un environnement le **plus vierge possible** (cad. débarassé de tout le superflu déjà installé...!!)
+L'environnement python se base sur la variable ```PYTHONPATH```, celle-ci étant initialisée dans le ```$HOME/.bashrc``` . Pour les besoins de la formation, nous partirons d'un environnement le **plus vierge possible** (cad. débarassé de tout le superflu déjà installé...!!)
 
 Pour cela, ajouter à votre fichier .bashrc (à la fin de celui-ci) les lignes suivantes:
 
@@ -31,11 +41,11 @@ unset PYTHONPATH
 export PYTHONPATH=/home/modules/versions/64/centos7/pyyaml/pyyaml-3.12/lib64/python2.7/site-packages::/home/modules/versions/64/centos7/netcdf4python/netcdf4python-1.0.7_gnu4.8.2/lib64/python2.7/site-packages:/home/modules/versions/64/centos7/matplotlib/matplotlib-2.0.0_gnu4.8.2/lib64/python2.7/site-packages:/home/modules/versions/64/centos7/numpy/numpy-1.9.1_gnu4.8.2/lib64/python2.7/site-packages:/home/modules/versions/64/centos7/ipython/ipython-3.2.1_gnu4.8.2/lib/python2.7/site-packages
 ```
 
-### Configuration de jupyter
+### Configuration du notebook (IPython)
 
 Une installation du notebook jupyter est déjà disponible par défaut avec le module IPython.
 
-Pour cela, ajouter à votre fichier .bashrc (à la fin de celui-ci) les lignes suivantes:
+Pour cela, ajouter à votre fichier ```.bashrc``` (à la fin de celui-ci) les lignes suivantes:
 
 ```sh
 module load ipython/ipython-2.4
@@ -45,19 +55,23 @@ module load ipython/ipython-2.4
 
 
 Tous les programmes d'installation (linux) sont disponible sous ce répertoire:
-/home/rdussurget/FormationPython/ressources/
+```/home/rdussurget/FormationPython/ressources/```
 
 ### Installation de PyCharm (IDE Python)
-pycharm-community-2017.2.4.tar.gz
+```pycharm-community-2017.2.4.tar.gz```
 
-Ce programme peut-être dézippé sur votre home (ou autre) et installé en standalone sans avoir besoins d'un accès root.
+Ce programme peut-être dézippé sur votre home (ou autre) et installé en standalone sans avoir besoin d'un accès root.
 
-### Installation d'Anaconda2-5 (suite complète comprenant l'IDE anaconda, le gestionnaire de packages conda & le notebook jupyter)
-Anaconda2-5.0.1-Linux-x86_64.sh
+### Installation d'Anaconda2-5
+```Anaconda2-5.0.1-Linux-x86_64.sh```
+
+Anaconda est une suite logicielle complète comprenant l'IDE anaconda, le gestionnaire de packages conda (permettant notamment d'installer des librairies de calcul numérique optimisées) & le notebook jupyter
 
 Ce programme d'installation installe la suite complète (ce qui prend un peu plus de temps et d'espace que le notebook jupyter seulement - **2.7Go** au lieu de **91Mo**).
 
 Vous pouvez exécuter ce programme, et celui-là se chargera de vous proposer un répertoire d'installation sur votre home, eg. /home/username/softwares/anaconda (attention, l'install prend un certain temps).
+
+Une fois installé, l'installateur modifiera votre path pour y inclure les exécutable de l'IDE (anaconda-navigator), conda & le notebook jupyter (voir section ***4. Pour lancer un notebook Jupyter***).
 
 ### Installation de jupyter notebook seulement (pas si comliqué!)
 Il est possible de bénéficier de la dernière version du notebook jupyter en utilisant un environnement virtuel (virtualenv) et l'installateur de packages pip. Pour cela, regardez la section 5 (***Pour avoir un environnement "dernier cri"***).
@@ -72,6 +86,8 @@ Pour exécuter un script python (version 2.7 par défaut - mais version 3.2 disp
 python monScript.py
 ```
 
+L'appel à la commande ```python``` sans arguments lance l'interpréteur seul (difficilement exploitable).
+
 ### L'interpréteur IPython
 
 Pour lancer IPython (interpréteur en ligne de commande intéractif):
@@ -85,11 +101,19 @@ Vous arriverez dans une invite de commande dans laquelle vous pourrez entrer et 
 
 Le notebook Jupyter, s'il est lancé via IPython, démarre un service html sur le px à partir duquel vous l'exécutez. Une fois le service lancé, vous pourrez accéder au notebook en ouvrant votre navigateur.
 
+* Si vous utilisez le notebook IPython
 ```sh
 ipython notebook --ip=<MON PX>.mercator-ocean.fr
 ```
 
-Puis connectez vous à l'URL suivante [http://**<MONPX>**.mercator-ocean.fr:8888](http://MONPX.mercator-ocean.fr:8888)
+* Si vous utilisez le notebook Jupyter
+```sh
+jupyter notebook --ip=<MON PX>.mercator-ocean.fr
+```
+
+Le serveur jupyter devrai vous indiquer en ligne de commande si le service est fonctionnel.
+
+Puis connectez vous à l'URL suivante (directement à partir de votre poste windows si vous êtes connectés à votre px via XMing):  [http://**<MONPX>**.mercator-ocean.fr:8888](http://MONPX.mercator-ocean.fr:8888)
 
 Et laissez vous guider.
 
@@ -139,7 +163,7 @@ Initialiser un environnement "jupyter"
 mkvirtualenv --system-site-packages jupyter
 ```
 
-Ceci va créer un répertoire **"jupyter"** sous **$WORKON_HOME/**, dans lequel est déployé une instance local de python avec tous ses modules à partir de l'installation python du système.
+Ceci va créer un répertoire ```$WORKON_HOME/jupyter```, dans lequel est déployé une instance locale de python avec tous ses modules à partir de l'installation python du système.
 
    * **Notes sur l'utilisation de virtualenv**
 Pour vous placer dans votre environnement (si vous n'y êtes pas déjà!)
@@ -147,7 +171,7 @@ Pour vous placer dans votre environnement (si vous n'y êtes pas déjà!)
 workon jupyter
 which python
 ```
-La dernière commande vous renvoie le chemin vers l'exécutable python utilisé par l'environnement.
+La dernière commande vous renvoie le chemin vers l'exécutable python utilisé par l'environnement, cad. ```$WORKON_HOME/jupyter/bin/python``` (au lieu de ```/usr/bin/python```).
 
 Pour désactiver votre environnement virtuel
 ```sh
@@ -156,7 +180,8 @@ deactivate
 (**CTRL+D**) fonctionne aussi.
 
 2. Mise à jour de librairies
-Pour installer proprement jupyter, il est nécessaire, en plus de l'installation de celui-ci, de mettre à jour les librairies ***backports.ssl_match_hostname*** et ***IPython***. Pour cela, exécuter ces commandes:
+
+Pour installer proprement jupyter, il est nécessaire, en plus de l'installation de celui-ci, de mettre à jour les librairies ***backports.ssl_match_hostname*** et ***IPython*** (qui semblent mal gérées par pip install). Pour cela, exécuter ces commandes:
 
 ```sh
 pip install -U backports.ssl_match_hostname
@@ -171,10 +196,12 @@ pip install jupyter
 
 4. Lancement de jupyter
 
+cf. Section ***4. Pour lancer un notebook Jupyter***
+
 ```sh
 jupyter notebook --ip=px-147.mercator-ocean.fr &
 ```
-Le serveur jupyter devrai vous indiquer en ligne de commande si le service est fonctionnel.
+
 
 
 
