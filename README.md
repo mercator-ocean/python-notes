@@ -25,7 +25,7 @@ Les besoins essentiels sont les suivants:
 2. Jupyter (notebook)
 3. Une IDE (interface de développement) python
    * PyCharm
-   * Autre (gedit, pydev-eclipse, ...)
+   * Autre (anaconda-navigator, gedit, pydev-eclipse,  ...)
 
 
 ## 2. Configuration de l'environnement
@@ -44,7 +44,7 @@ module load ipython/ipython-2.4
 
 Pour lancer le notebook IPython, regardez la section ***Lancer le notebook*** (4e chapitre).
 
-{color=red}**ATTENTION, une fois le test réalisé, il est préférable de commenter la ligne dans le .bashrc afin d'éviter tout conflit avec le reste de la configuration**{\color}
+<span style="background-color:red"><b>ATTENTION<\b>, une fois le test réalisé, il est préférable de commenter la ligne dans le <b>.bashrc<\b> afin d'éviter tout conflit avec le reste de la configuration**<\span>
 
 ### PYTHONPATH (.bashrc)
 L'environnement python se base sur la variable ```PYTHONPATH```, celle-ci étant initialisée dans le ```$HOME/.bashrc``` . Pour les besoins de la formation, nous partirons d'un environnement le **plus vierge possible** (cad. débarassé de tout le superflu déjà installé...!!)
