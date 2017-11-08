@@ -27,9 +27,24 @@ Les besoins essentiels sont les suivants:
    * PyCharm
    * Autre (gedit, pydev-eclipse, ...)
 
+
 ## 2. Configuration de l'environnement
 
 Connectez vous d'abord à votre px (via Xming si vous êtes à distance).
+
+### Configuration du notebook IPython et lancement.
+
+Une installation du notebook jupyter est déjà disponible par défaut avec le module IPython.
+
+Pour cela, ajouter à votre fichier ```.bashrc``` (à la fin de celui-ci) les lignes suivantes:
+
+```sh
+module load ipython/ipython-2.4
+```
+
+Pour lancer le notebook IPython, regardez la section ***Lancer le notebook*** (4e chapitre).
+
+{color=red}**ATTENTION, une fois le test réalisé, il est préférable de commenter la ligne dans le .bashrc afin d'éviter tout conflit avec le reste de la configuration**{\color}
 
 ### PYTHONPATH (.bashrc)
 L'environnement python se base sur la variable ```PYTHONPATH```, celle-ci étant initialisée dans le ```$HOME/.bashrc``` . Pour les besoins de la formation, nous partirons d'un environnement le **plus vierge possible** (cad. débarassé de tout le superflu déjà installé...!!)
@@ -41,15 +56,7 @@ unset PYTHONPATH
 export PYTHONPATH=/home/modules/versions/64/centos7/pyyaml/pyyaml-3.12/lib64/python2.7/site-packages:/home/modules/versions/64/centos7/netcdf4python/netcdf4python-1.0.7_gnu4.8.2/lib64/python2.7/site-packages:/home/modules/versions/64/centos7/matplotlib/matplotlib-2.0.0_gnu4.8.2/lib64/python2.7/site-packages:/home/modules/versions/64/centos7/numpy/numpy-1.9.1_gnu4.8.2/lib64/python2.7/site-packages:/home/modules/versions/64/centos7/ipython/ipython-3.2.1_gnu4.8.2/lib/python2.7/site-packages
 ```
 
-### Configuration du notebook (IPython)
 
-Une installation du notebook jupyter est déjà disponible par défaut avec le module IPython.
-
-Pour cela, ajouter à votre fichier ```.bashrc``` (à la fin de celui-ci) les lignes suivantes:
-
-```sh
-module load ipython/ipython-2.4
-```
 
 ## 3. Installation des logiciels
 
@@ -65,6 +72,8 @@ Ce programme peut-être dézippé sur votre home (ou autre) et installé en stan
 ### Installation d'Anaconda2-5
 ```Anaconda2-5.0.1-Linux-x86_64.sh```
 
+**INSTALLATION OPTIONNELLE!**
+
 Anaconda est une suite logicielle complète comprenant l'IDE anaconda, le gestionnaire de packages conda (permettant notamment d'installer des librairies de calcul numérique optimisées) & le notebook jupyter
 
 Ce programme d'installation installe la suite complète (ce qui prend un peu plus de temps et d'espace que le notebook jupyter seulement - **2.7Go** au lieu de **91Mo**).
@@ -74,6 +83,9 @@ Vous pouvez exécuter ce programme, et celui-là se chargera de vous proposer un
 Une fois installé, l'installateur modifiera votre path pour y inclure les exécutable de l'IDE (anaconda-navigator), conda & le notebook jupyter (voir section ***4. Pour lancer un notebook Jupyter***).
 
 ### Installation de jupyter notebook seulement (pas si comliqué!)
+
+**OPTIONNEL, à tester, mais si vous ne réusissez pas, préférer le notebook IPython.**
+
 Il est possible de bénéficier de la dernière version du notebook jupyter en utilisant un environnement virtuel (virtualenv) et l'installateur de packages pip. Pour cela, regardez la section 5 (***Pour avoir un environnement "dernier cri"***).
 
 ## 4. Lancement des utilitaires
@@ -101,12 +113,12 @@ Vous arriverez dans une invite de commande dans laquelle vous pourrez entrer et 
 
 Le notebook Jupyter, s'il est lancé via IPython, démarre un service html sur le px à partir duquel vous l'exécutez. Une fois le service lancé, vous pourrez accéder au notebook en ouvrant votre navigateur.
 
-* Si vous utilisez le notebook IPython
+* Si vous utilisez le **notebook IPython**
 ```sh
 ipython notebook --ip=<MON PX>.mercator-ocean.fr
 ```
 
-* Si vous utilisez le notebook Jupyter
+* Si vous utilisez le **notebook Jupyter**
 ```sh
 jupyter notebook --ip=<MON PX>.mercator-ocean.fr
 ```
@@ -127,20 +139,28 @@ Pip est un gestionnaire de packages disponible en ligne de commande et branché 
 
 Pip a besoin de passer le proxy pour télécharger les packages. Il est donc nécessaire de configurer l'environnement pour pouvoir le faire.
 
-Ajoutez à votre fichier .bashrc (à la fin de celui-ci) les lignes suivantes:
+Ajoutez à votre fichier .bashrc (à la fin de celui-ci) les lignes suivantes (**ATTENTION**, remplacer ***<login>*** par votre login et ***<pswd>*** par votre mot de passe du *_proxy_*):
 
 ```sh
 #Set proxy for pip (and others!)
 HTTP_PROXY=http://<login>:<psws>@proxy.mercator-ocean.fr:8080
 http_proxy=$HTTP_PROXY
-HTTPS_PROXY=http://<login>:<psws>@proxy.mercator-ocean.fr:8080
-http_proxy=$HTTPS_PROXY
+HTTPS_PROXY=https://<login>:<psws>@proxy.mercator-ocean.fr:8080
+https_proxy=$HTTPS_PROXY
 
 export HTTP_PROXY
 export HTTPS_PROXY
 export https_proxy
 export http_proxy
 ```
+
+Pour vérifier que l'installation de pip fonctionne, rechercher un module sur pipy:
+
+```sh
+pip search pip
+```
+
+***doit vous retourner des proposition de package, et non pas une erreur de type proxyError***
 
 ### virtualenv (environnements virtualisés pour python)
 
@@ -179,19 +199,19 @@ deactivate
 ```
 (**CTRL+D**) fonctionne aussi.
 
-2. Mise à jour de librairies
+2. Installation de jupyter
+
+```sh
+pip install jupyter
+```
+
+3. Mise à jour de librairies
 
 Pour installer proprement jupyter, il est nécessaire, en plus de l'installation de celui-ci, de mettre à jour les librairies ***backports.ssl_match_hostname*** et ***IPython*** (qui semblent mal gérées par pip install). Pour cela, exécuter ces commandes:
 
 ```sh
 pip install -U backports.ssl_match_hostname
 pip install -U IPython
-```
-
-3. Installation de jupyter
-
-```sh
-pip install jupyter
 ```
 
 4. Lancement de jupyter
@@ -201,7 +221,9 @@ cf. Section ***4. Pour lancer un notebook Jupyter***
 ```sh
 jupyter notebook --ip=px-147.mercator-ocean.fr &
 ```
+Créer un notebook, et tenter de le lancer. **Si le notebook retourne des erreurs de type "Kernel died"**, l'installation de jupyter a échoué, probablement à cause d'un conflit dans l'environnement.
 
+**Si celui-ci n'est pas résolvable, retourner à la solution du notebook jupyter**
 
 
 
