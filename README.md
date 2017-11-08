@@ -22,11 +22,12 @@ Nous proposons ici soit:
 Les besoins essentiels sont les suivants:
 1. Librairies pythons:
    * NetCDF4, PyYaml, Matplotlib, numpy
-2. Jupyter (notebook)
-3. Une IDE (interface de développement) python
+2. Un notebook, soit:
+   * l'interpréteur Ipython et son notebook
+   * Jupyter (notebook) - **ATTENTION: soit l'un soit l'autre de préférence**
+4. Une IDE (interface de développement) python
    * PyCharm
    * Autre (anaconda-navigator, gedit, pydev-eclipse,  ...)
-
 
 ## 2. Configuration de l'environnement
 
@@ -44,7 +45,9 @@ module load ipython/ipython-2.4
 
 Pour lancer le notebook IPython, regardez la section ***Lancer le notebook*** (4e chapitre).
 
-<span style="background-color:red"><b>ATTENTION<\b>, une fois le test réalisé, il est préférable de commenter la ligne dans le <b>.bashrc<\b> afin d'éviter tout conflit avec le reste de la configuration**<\span>
+```Markdown
+**ATTENTION**: une fois le test réalisé, __il est préférable de commenter la ligne dans le **.bashrc**__ afin d'éviter tout conflit avec le reste de la configuration
+```
 
 ### PYTHONPATH (.bashrc)
 L'environnement python se base sur la variable ```PYTHONPATH```, celle-ci étant initialisée dans le ```$HOME/.bashrc``` . Pour les besoins de la formation, nous partirons d'un environnement le **plus vierge possible** (cad. débarassé de tout le superflu déjà installé...!!)
@@ -53,7 +56,7 @@ Pour cela, ajouter à votre fichier .bashrc (à la fin de celui-ci) les lignes s
 
 ```sh
 unset PYTHONPATH
-export PYTHONPATH=/home/modules/versions/64/centos7/pyyaml/pyyaml-3.12/lib64/python2.7/site-packages:/home/modules/versions/64/centos7/netcdf4python/netcdf4python-1.0.7_gnu4.8.2/lib64/python2.7/site-packages:/home/modules/versions/64/centos7/matplotlib/matplotlib-2.0.0_gnu4.8.2/lib64/python2.7/site-packages:/home/modules/versions/64/centos7/numpy/numpy-1.9.1_gnu4.8.2/lib64/python2.7/site-packages:/home/modules/versions/64/centos7/ipython/ipython-3.2.1_gnu4.8.2/lib/python2.7/site-packages
+export PYTHONPATH=/home/modules/versions/64/centos7/pyyaml/pyyaml-3.12/lib64/python2.7/site-packages:/home/modules/versions/64/centos7/netcdf4python/netcdf4python-1.0.7_gnu4.8.2/lib64/python2.7/site-packages:/home/modules/versions/64/centos7/matplotlib/matplotlib-2.0.0_gnu4.8.2/lib64/python2.7/site-packages:/home/modules/versions/64/centos7/numpy/numpy-1.9.1_gnu4.8.2/lib64/python2.7/site-packages
 ```
 
 
@@ -69,10 +72,16 @@ Tous les programmes d'installation (linux) sont disponible sous ce répertoire:
 
 Ce programme peut-être dézippé sur votre home (ou autre) et installé en standalone sans avoir besoin d'un accès root.
 
+__Pour le lancer:__
+```sh
+/mon/chemin/vers/pycharm/bin/pycharm.sh
+```
+
+
 ### Installation d'Anaconda2-5
 ```Anaconda2-5.0.1-Linux-x86_64.sh```
 
-**INSTALLATION OPTIONNELLE!**
+**[INSTALLATION OPTIONNELLE!]**
 
 Anaconda est une suite logicielle complète comprenant l'IDE anaconda, le gestionnaire de packages conda (permettant notamment d'installer des librairies de calcul numérique optimisées) & le notebook jupyter
 
@@ -83,8 +92,6 @@ Vous pouvez exécuter ce programme, et celui-là se chargera de vous proposer un
 Une fois installé, l'installateur modifiera votre path pour y inclure les exécutable de l'IDE (anaconda-navigator), conda & le notebook jupyter (voir section ***4. Pour lancer un notebook Jupyter***).
 
 ### Installation de jupyter notebook seulement (pas si comliqué!)
-
-**OPTIONNEL, à tester, mais si vous ne réusissez pas, préférer le notebook IPython.**
 
 Il est possible de bénéficier de la dernière version du notebook jupyter en utilisant un environnement virtuel (virtualenv) et l'installateur de packages pip. Pour cela, regardez la section 5 (***Pour avoir un environnement "dernier cri"***).
 
@@ -131,7 +138,12 @@ Et laissez vous guider.
 
 ## 5. Pour avoir un environnement "dernier cri"
 
-Pour bénéficier des dernières version des librairies python et notamment de jupyter, vous pouvez l'installer par vous même en utilisant pip et virtualenv.
+```Markdown
+**__OPTIONNEL__**:
+à tester, mais si vous ne réusissez pas, retourner à la configuration simple avec **IPython seulement**.
+```
+
+Pour bénéficier des dernières version des librairies python et notamment de jupyter (et ipython indépendamment), vous pouvez l'installer par vous même en utilisant pip et virtualenv.
 
 ### pip (gestionnaire de packages)
 
@@ -139,13 +151,13 @@ Pip est un gestionnaire de packages disponible en ligne de commande et branché 
 
 Pip a besoin de passer le proxy pour télécharger les packages. Il est donc nécessaire de configurer l'environnement pour pouvoir le faire.
 
-Ajoutez à votre fichier .bashrc (à la fin de celui-ci) les lignes suivantes (**ATTENTION**, remplacer ***<login>*** par votre login et ***<pswd>*** par votre mot de passe du *_proxy_*):
+Ajoutez à votre fichier .bashrc (à la fin de celui-ci) les lignes suivantes (**ATTENTION**, remplacer ***<login>*** par votre login et ***<password>*** par votre mot de passe du **__proxy__**):
 
-```sh
+```Markdown
 #Set proxy for pip (and others!)
-HTTP_PROXY=http://<login>:<psws>@proxy.mercator-ocean.fr:8080
+HTTP_PROXY=http://***<login>***:***<password>***@proxy.mercator-ocean.fr:8080
 http_proxy=$HTTP_PROXY
-HTTPS_PROXY=https://<login>:<psws>@proxy.mercator-ocean.fr:8080
+HTTPS_PROXY=https://***<login>***:***<password>***@proxy.mercator-ocean.fr:8080
 https_proxy=$HTTPS_PROXY
 
 export HTTP_PROXY
@@ -174,8 +186,15 @@ source /usr/bin/virtualenvwrapper.sh
 ### Installation de jupyter
 
 
+1. Vérification de l'environnement.
 
-1. Création de l'environnement.
+Avant tout, il est __impératif de contrôler l'environnement__, notamment le **PYTHONPATH** qui ne doit pas contenir de **__référence explicite__** à IPython
+
+```sh
+echo $PYTHONPATH
+```
+
+2. Création de l'environnement.
 
 Initialiser un environnement "jupyter"
 
