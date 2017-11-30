@@ -9,7 +9,7 @@ Placez vous dans l'environnement virtuel de votre choix (cf. [notes sur virtuale
 pip install jupyter
 ```
 
-### Mise à jour de librairies
+#### Mise à jour de librairies
 
 Pour installer proprement jupyter, il est nécessaire, en plus de l'installation de celui-ci, de mettre à jour les librairies ***backports.ssl_match_hostname*** et ***IPython*** (qui semblent mal gérées par pip install). Pour cela, exécuter ces commandes:
 
