@@ -3,7 +3,7 @@
 
 ## Au moyen de pip (+virtualenv)
 
-Placez vous dans l'environnement virtuel de votre choix (cf. [notes sur virtualenv|https://github.com/mercator-ocean/python-notes/blob/master/virtualenv.md#pour-se-placer-dans-lenvironnement-virtuel])
+Placez vous dans l'environnement virtuel de votre choix (cf. [notes sur virtualenv](https://github.com/mercator-ocean/python-notes/blob/master/virtualenv.md#pour-se-placer-dans-lenvironnement-virtuel))
 
 ```sh
 pip install jupyter
