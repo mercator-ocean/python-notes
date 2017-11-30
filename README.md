@@ -71,11 +71,11 @@ Instructions [ICI](https://github.com/mercator-ocean/python-notes/blob/master/iP
 
 **Attention** : afin d'éviter tout conflit __il est préférable de commenter la ligne dans le **.bashrc**__ si vous voulez configurer vous même votre environnement python afin d'éviter tout conflit.
 
-### 2.3 Installation d'Anaconda
+### 2.3 Installation d'Anaconda (OPTIONELLE!)
 
-Cf. **section 3. (Installation d'Anaconda2-5)**
+Cf. **[section 3. Installation d'Anaconda2-5](https://github.com/mercator-ocean/python-notes/blob/master/README.md#installation-danaconda2-5)**
 
-### 2.4 Installation de jupyter (dans un environnement virtuel)
+### 2.4 Installation de jupyter (OPTIONELLE!)
 
 Pour bénéficier des __dernières versions__ des librairies python et notamment de jupyter (et ipython indépendamment), vous pouvez l'installer par vous même en utilisant pip (gestionnaire de packages python) et virtualenv (environnements python "*virtuels*").
 
@@ -120,8 +120,6 @@ __Pour le lancer:__
 
 ### Installation d'Anaconda2-5
 ```Anaconda2-5.0.1-Linux-x86_64.sh```
-
-**[INSTALLATION OPTIONNELLE!]**
 
 Anaconda est une suite logicielle complète comprenant l'IDE anaconda, le gestionnaire de packages conda (permettant notamment d'installer des librairies de calcul numérique optimisées) & le notebook jupyter
 
