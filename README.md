@@ -157,7 +157,7 @@ Vous arriverez dans une invite de commande dans laquelle vous pourrez entrer et 
 
 ### Pour lancer un notebook
 
-cf. notes sur le [lancement du notebook](https://github.com/mercator-ocean/python-notes/blob/master/python-notes/pip-config.md)
+cf. notes sur le [lancement du notebook](https://github.com/mercator-ocean/python-notes/blob/master/notebook-run.md)
 
 
 
