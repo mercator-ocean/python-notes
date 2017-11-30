@@ -4,10 +4,10 @@ Ce dossier contient toute la documentation et les ressources nécessaires à la 
 
 ## Table des matières
 
-* **[1. Besoins pour la formation](https://github.com/mercator-ocean/python-notes/blob/master/README.md#1--besoins-pour-la-formation)**
-* **[2. Configuration de l'environnement](https://github.com/mercator-ocean/python-notes/blob/master/README.md#2--configuration-de-l-environnement)**
-* **[3. Installation des logiciels](https://github.com/mercator-ocean/python-notes/blob/master/README.md#3--installation-des-logiciels)**
-* **[4. Lancement des utilitaires](https://github.com/mercator-ocean/python-notes/blob/master/README.md#4--lancement-des-utilitaires)**
+* **[1. Besoins pour la formation](https://github.com/mercator-ocean/python-notes/blob/master/README.md#1-besoins-pour-la-formation)**
+* **[2. Configuration de l'environnement](https://github.com/mercator-ocean/python-notes/blob/master/README.md#2-configuration-de-lenvironnement)**
+* **[3. Installation des logiciels](https://github.com/mercator-ocean/python-notes/blob/master/README.md#3-installation-des-logiciels)**
+* **[4. Lancement des utilitaires](https://github.com/mercator-ocean/python-notes/blob/master/README.md#4-lancement-des-utilitaires)**
 
 ## 1. Besoins pour la formation
 
