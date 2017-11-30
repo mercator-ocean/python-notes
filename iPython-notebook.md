@@ -18,5 +18,4 @@ Pour lancer le notebook IPython, regardez la section ***Lancer le notebook*** (4
 
 ```Markdown
 Vous pouvez ajouter cette ligne à votre fichier ```.bashrc``` afin de recharger automatiquement iPython et son environnement.
-**ATTENTION**: __il est préférable de commenter la ligne dans le **.bashrc**__ si vous voulez configurer vous même votre environnement python afin d'éviter tout conflit.
 ````
