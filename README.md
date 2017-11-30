@@ -2,6 +2,13 @@
 
 Ce dossier contient toute la documentation et les ressources nécessaires à la bonne configuration de son poste de travail en vue de la formation python initiation.
 
+## Table des matières
+
+* **[1. Besoins pour la formation](https://github.com/mercator-ocean/python-notes/blob/master/README.md#1--besoins-pour-la-formation)**
+* **[2. Configuration de l'environnement](https://github.com/mercator-ocean/python-notes/blob/master/README.md#2--configuration-de-l-environnement)**
+* **[3. Installation des logiciels](https://github.com/mercator-ocean/python-notes/blob/master/README.md#3--installation-des-logiciels)**
+* **[4. Lancement des utilitaires](https://github.com/mercator-ocean/python-notes/blob/master/README.md#4--lancement-des-utilitaires)**
+
 ## 1. Besoins pour la formation
 
 ### Environnement de travail
@@ -71,13 +78,15 @@ Instructions [ICI](https://github.com/mercator-ocean/python-notes/blob/master/iP
 
 **Attention** : afin d'éviter tout conflit __il est préférable de commenter la ligne dans le **.bashrc**__ si vous voulez configurer vous même votre environnement python afin d'éviter tout conflit.
 
-### 2.3 Installation d'Anaconda (OPTIONELLE!)
+### 2.3 Installation d'Anaconda (OPTIONELLE)
+
+Anaconda est livré avec la suite jupyter.  Attention tout de même, l'installation nécessite environ **2Go d'espace disque**.
 
 Cf. **[section 3. Installation d'Anaconda2-5](https://github.com/mercator-ocean/python-notes/blob/master/README.md#installation-danaconda2-5)**
 
-### 2.4 Installation de jupyter (OPTIONELLE!)
+### 2.4 Installation de jupyter (OPTIONELLE)
 
-Pour bénéficier des __dernières versions__ des librairies python et notamment de jupyter (et ipython indépendamment), vous pouvez l'installer par vous même en utilisant pip (gestionnaire de packages python) et virtualenv (environnements python "*virtuels*").
+Pour bénéficier des __dernières versions__ des librairies python et notamment de jupyter (et ipython indépendamment), sans avoir à  installer la totalité d'anaconda, vous pouvez l'installer par vous même en utilisant pip (gestionnaire de packages python) et virtualenv (environnements python "*virtuels*").
 
 #### a. Réinitialisation du PYTHONPATH
 
